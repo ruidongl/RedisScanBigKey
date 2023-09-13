@@ -21,8 +21,8 @@ class Program
             try
             {
                 string redisConnectionString = args[0]; //format: <cachename>.redis.cache.windows.net:6380,password=<redis_key>,ssl=True,abortConnect=False
-                long bigkeyThreshold = args.Length > 2 ? long.Parse(args[1]) : 1024 * 100; // 100KB default
-                int pageSize = args.Length > 1 ? int.Parse(args[2]) : 1000;
+                long bigkeyThreshold = args.Length > 1 ? long.Parse(args[1]) : 1024 * 100; // 100KB default
+                int pageSize = args.Length > 2 ? int.Parse(args[2]) : 1000;
                 // Connect to the Redis server
                 ConnectionMultiplexer redis = await ConnectionMultiplexer.ConnectAsync(redisConnectionString);
                 IDatabase db = redis.GetDatabase();
